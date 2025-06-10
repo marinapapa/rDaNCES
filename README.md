@@ -19,7 +19,7 @@ Apart from the R dependencies included in the package's documentation, to run th
 
 Further information on the functionality of the framework see our accompanying publication: 
 
-_Papadopoulou M, Hildenbrandt H, Hemelrijk CK. . Under review._
+_Papadopoulou M, Hildenbrandt H, Hemelrijk CK. (2025) A data-inspired framework to simulate predator-prey systems in collective behaviour. Under review._
 
 
 ### Acknowledgements
