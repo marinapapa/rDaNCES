@@ -1,10 +1,5 @@
 # *rDaNCES: fast and reproducable DAnCES*  
 
-<!-- badges: start -->
-[![R-CMD-check](https://github.com/marinapapa/rDaNCES/actions/workflows/R-CMD-check.yml/badge.svg)](https://github.com/marinapapa/rDaNCES/actions/workflows/R-CMD-check.yml)
-[![Codecov test coverage](https://codecov.io/gh/marinapapa/rDaNCES/branch/main/graph/badge.svg)](https://app.codecov.io/gh/marinapapa/rDaNCES?branch=main)
-
-<!-- badges: end -->
 ## Description 
 This R package supports the set up and run of simulations with agent-based models constructed based on the [`DaNCES`](https://github.com/marinapapa/DaNCES_framework) framework (Data-iNspired Collective Escape Simulations).
 
