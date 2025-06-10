@@ -1,8 +1,8 @@
 # *rDaNCES: fast and reproducable DAnCES*  
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/marinapapa/swaRmverse/actions/workflows/R-CMD-check.yml/badge.svg)](https://github.com/marinapapa/swaRmverse/actions/workflows/R-CMD-check.yml)
-[![Codecov test coverage](https://codecov.io/gh/marinapapa/swaRmverse/branch/main/graph/badge.svg)](https://app.codecov.io/gh/marinapapa/swaRmverse?branch=main)
+[![R-CMD-check](https://github.com/marinapapa/rDaNCES/actions/workflows/R-CMD-check.yml/badge.svg)](https://github.com/marinapapa/rDaNCES/actions/workflows/R-CMD-check.yml)
+[![Codecov test coverage](https://codecov.io/gh/marinapapa/rDaNCES/branch/main/graph/badge.svg)](https://app.codecov.io/gh/marinapapa/rDaNCES?branch=main)
 
 <!-- badges: end -->
 ## Description 
