@@ -93,3 +93,24 @@ So when we are ready, we can run the simulations. The function will create a fol
 #run_simulations(dirs, reps)
 
 ```
+
+## Step 4. Import the simualted output
+
+After the simulations have run successfully, we can use the package's functions to load the simulated data and configuration, depending on the analysis observers we have set:
+
+```{r message=FALSE, warning=FALSE}
+## Load output of a single simulation. Each set of csv files from a simulation is saved in a uniquely named folder:
+output_path <- '../sim_data/rdances_demo/21749914392644'
+
+## Note: uncomment the following line when you have generated the data. 
+#sim_data <- import_base_data(output_path, types = c("self", "group"))
+
+
+## Or load the output of the full experiment: 
+output_path <- '../sim_data/rdances_demo/'
+
+## Note: uncomment the following line when you have generated the data. 
+#sim_data_all <- import_multi_data(output_path, types = c("self", "group"))
+
+```
+

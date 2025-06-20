@@ -9,24 +9,27 @@ import_base_data <- function(folder_path,
                              types = c('self',
                                        'neighb',
                                        'group'
-                                       ))
+                                       ),
+                             config_name = 'composed_config.json')
 {
   out <- list()
-  
-  if ('neighb' %in% types) out$neighb <- data.table::fread(paste0(folder_path, '\\', 'all_neighbors.csv'))
+
   if ('self' %in% types) out$self <- data.table::fread(paste0(folder_path, '\\', 'timeseries.csv'))
   if ('group' %in% types)out$flock <- data.table::fread(paste0(folder_path, '\\', 'groups.csv'))
-  if ('roost' %in% types)out$roost <- data.table::fread(paste0(folder_path, '\\', 'roosting.csv'))
-  if ('curv' %in% types)out$curv <- data.table::fread(paste0(folder_path, '\\', 'curvature.csv'))
-  if ('tm' %in% types)out$TM <- utils::read.csv(paste0(folder_path, '\\', 'trans_matrix.csv'))
-  if ('forces' %in% types)out$forces <- utils::read.csv(paste0(folder_path, '\\', 'forces.csv'))
-  
-  
-  cfg <- load_config(paste0(folder_path, '\\', 'composed_config.json'))
+
+  ### To be reincluded
+  # if ('roost' %in% types)out$roost <- data.table::fread(paste0(folder_path, '\\', 'roosting.csv'))
+  # if ('curv' %in% types)out$curv <- data.table::fread(paste0(folder_path, '\\', 'curvature.csv'))
+  # if ('tm' %in% types)out$TM <- utils::read.csv(paste0(folder_path, '\\', 'trans_matrix.csv'))
+  # if ('forces' %in% types)out$forces <- utils::read.csv(paste0(folder_path, '\\', 'forces.csv'))
+  # if ('neighb' %in% types) out$neighb <- data.table::fread(paste0(folder_path, '\\', 'all_neighbors.csv'))
+
+
+  cfg <- load_config(paste0(folder_path, '\\', config_name))
   out$config <- cfg
-  out$sim_info$sim_id <- basename(dirname(paste0(folder_path, '\\', 'time_series.csv')))
+  out$sim_info$sim_id <- basename(dirname(paste0(folder_path, '\\', 'timeseries.csv')))
   out$sim_info$N <- 1
-  
+
   return(out)
 }
 
@@ -38,15 +41,16 @@ import_base_data <- function(folder_path,
 #' @param types which data to load, from: timeseries, neighbours, flocks, roosting, curvature, transition matrix and forces.
 #' @return list of all simulation lists
 #' @export
-import_multi_data <- function(head_folder_path, 
-                              types = c('self'))
+import_multi_data <- function(head_folder_path,
+                              types = c('self')
+                              )
 {
   sim_data <- list()
   sim_id <- 0
   for (i in list.dirs(head_folder_path))
   {
     if (sim_id == 0 ) { sim_id <- sim_id + 1; next;}
-    
+
     sim_data[[sim_id]] <- import_base_data(i, types)
     #print(sim_id)
     sim_id <- sim_id + 1

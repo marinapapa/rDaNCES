@@ -4,7 +4,11 @@
 \alias{import_base_data}
 \title{Import simulated data}
 \usage{
-import_base_data(folder_path, types = c("self", "neighb", "group"))
+import_base_data(
+  folder_path,
+  types = c("self", "neighb", "group"),
+  config_name = "composed_config.json"
+)
 }
 \arguments{
 \item{folder_path}{path to data folder}
