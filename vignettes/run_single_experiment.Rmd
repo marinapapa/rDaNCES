@@ -3,12 +3,12 @@ title: "Run DaNCES Simulations"
 author: "Marina Papadopoulou"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{1 - Data Preparation}
+  %\VignetteIndexEntry{Run Simulations}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-This vignette intends to guide the user through setting up a simulation experiment using a model built with the DaNCES software.
+This vignette intends to guide the user through setting up a simulation experiment using a model built with the DaNCES software. For a working example of its functionality, see the [DaNCES_simulator](https://github.com/marinapapa/DaNCES_simulator) repo.
 
 ## Step 1. Repository set up
 
@@ -17,8 +17,8 @@ First, we need to define a name for our experiment and give the path to the fold
 
 ```{r message=FALSE, warning=FALSE}
 
-exp_name <- 'rdances_demo'
-model_exe_path <- '..\\inst\\extdata\\sim_demo\\dances.exe'
+exp_name <- 'rdances_demo' ## choose a name for the experiment
+model_exe_path <- '..\\simulator\\sim_demo\\dances.exe' ## adjust accordingly
 
 ```
 
@@ -28,35 +28,36 @@ Most importantly, a template config (here named "demo_config.json") correspondin
 ```{r message=FALSE, warning=FALSE}
 
 main_repo <- dirname(model_exe_path)
-config_tmp_name <- paste0(main_repo, '/demo_config.json')
+config_tmp_name <- paste0(main_repo, '/composed_config.json')
 
 ```
 The package uses these paths to set up a directory with the name of our experiment that contain the following: 
 
 1. The 'generated_configs' subdirectory that will contain all the configuration files that cover the parameter space we go through with the experiment.
-2. A log file with the text outputs of the simulations runs.
-3. 
+2. A log file with the text outputs of the loop over the parameter space for simulation runs.
+3. A potential results folder that also includes a copy of the investigated parameter space in a *tmp* subdirectory.
 
 
 ```{r message=FALSE, warning=FALSE}
-library(rDaNCES)
 
-dirs <- set_up_directories(sim_name = exp_name,
-                           config_name = config_tmp_name,
-                           model_exe = model_exe_path,
-                           main_path =  main_repo
-                           )
+library(rDaNCES)
+## Note: uncomment the following call when you have the model exe file in the defined directory.
+# dirs <- set_up_directories(sim_name = exp_name,
+#                            config_name = config_tmp_name,
+#                            model_exe = model_exe_path,
+#                            main_path =  main_repo
+#                            )
 
 ```
 
 ## Step 2. Parameter space set up
 
-Now we can define which parameters we want to vary across our simulations, construct a parameter set, and set how many repetitions of each parameter combination we want:
+Now we can define which parameters we want to vary across our simulations, construct a parameter set, and set how many repetitions of each parameter combination we want. For a list of which parameters can be changed with the current version of the software see the parameters_class.R help file.
 
 ```{r message=FALSE, warning=FALSE}
 
 ### Parameter values
-N <- c(5, 10, 20) # group size
+N <- c(5, 10, 20) # group size of prey
 speed <- c(5, 10) # cruise speed of prey
 
 # Number of repetitions of each parameter set:
@@ -77,16 +78,18 @@ Using our parameter set and directories, we can produce the new configuration fi
 
 ```{r message=FALSE, warning=FALSE}
 
-## Create configuration files
-set_up_simulations(param_set, dirs)
+## Create configuration files 
+## Note: uncomment the following line when you have set the configuration template file in the defined directory.
+#set_up_simulations(param_set, dirs)
 
-print(paste0('We will run ', length(list.files(dirs$EXP_CONFIGS_PATH)) * reps, ' simulations.'))
+#print(paste0('We will run ', length(list.files(dirs$EXP_CONFIGS_PATH)) * reps, ' simulations.'))
 
 ```
 So when we are ready, we can run the simulations. The function will create a folder with the simulated data in the parent repository of the main folder:
 
 ```{r message=FALSE, warning=FALSE}
 ## Run all simulation
-run_simulations(dirs, reps)
+## Note: uncomment the following line when you have set the model exe file in the defined directory.
+#run_simulations(dirs, reps)
 
 ```
