@@ -5,9 +5,7 @@
 This R package supports the set up and run of simulations with agent-based models constructed based on the [`DaNCES`](https://github.com/marinapapa/DaNCES_framework) framework (Data-iNspired Collective Escape Simulations). For a proposed repository structure to combine the agent-based model software with this package, see [DaNCES_simulator](https://github.com/marinapapa/DaNCES_simulator). 
 [`rDaNCES`](https://github.com/marinapapa/rDaNCES) is a work in progress, and it aims to help users kick-off the simulation runs and analysis of their simulated data. For extention inquiries please get in touch.  
 
-Overall the package uses a config file as a template (a full composed *.json* file from DaNCES), sets up the parameter space to be investigated, creates a set of configs for all different parameter combinations (saved in a *generated_configs* folder), runs the defined model (from the directory of the executable) for each config with as many repetitions as the user sets, and then provides some helper functions to start analyzing the simulated data. The executable of a model to be used for the simulations should be stored in an external folder and its path indicated, as shown in the vignette. To keep track of each full model, the user is advised to take advantage of version control of their GitHub repository for the agent-based modeling, for instance:
-- demo_model.exe: branch *develop* @583ebdf (tree: 732qsfda4n, commit am: 'exp 1 model')
-- demo_model_v2.exe: branch *develop* @535edde (tree: 732qsfda4n, commit am: 'exp 2 model')
+Overall the package uses a config file as a template (a full composed *.json* file from DaNCES), sets up the parameter space to be investigated, creates a set of configs for all different parameter combinations (saved in a *generated_configs* folder), runs the defined model (from the directory of the executable) for each config with as many repetitions as the user sets, and then provides some helper functions to start analyzing the simulated data. The executable of a model to be used for the simulations should be stored in an external folder and its path indicated, as shown in the vignette.
 
 ## Publication
 
