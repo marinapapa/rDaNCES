@@ -1,5 +1,5 @@
 # *rDaNCES*   <img src="man/figures/logo.png" align="right" alt="" width="120" />
-
+<br>
 
 ## Description 
 This R package supports the set up and run of simulations with agent-based models constructed based on the [`DaNCES`](https://github.com/marinapapa/DaNCES_framework) framework (Data-iNspired Collective Escape Simulations). For a proposed repository structure to combine the agent-based model software with this package, see [DaNCES_simulator](https://github.com/marinapapa/DaNCES_simulator). 
