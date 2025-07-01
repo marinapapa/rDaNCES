@@ -28,7 +28,7 @@ Most importantly, a template config (here named "demo_config.json") correspondin
 ```{r message=FALSE, warning=FALSE}
 
 main_repo <- dirname(model_exe_path)
-config_tmp_name <- paste0(main_repo, '/composed_config.json')
+config_tmp_name <- paste0(main_repo, '/config.json')
 
 ```
 The package uses these paths to set up a directory with the name of our experiment that contain the following: 

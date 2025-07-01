@@ -14,7 +14,7 @@ run_simulations <- function(dirs_list,
   {
     stop("Config folder is empty! Make sure to run the set up simulations function first.")
   }
-  
+
   cat(paste0('Simulations sets: ', dirs_list$OUT_FOLD, '\n'), file = dirs_list$LOG_FULL_PATH)
   k <- 1
   pb <- utils::txtProgressBar(min = 0, max = reps*length(list.files(dirs_list$EXP_CONFIGS_PATH)), style = 3)
@@ -24,7 +24,7 @@ run_simulations <- function(dirs_list,
     while (repets > 0)
     {
       cat(paste0('Simulation with config: ', i, ', repetition: ', reps - repets + 1, ' \n'), file =  dirs_list$LOG_FULL_PATH, append = TRUE)
-      shell(paste0(dirs_list$MODEL_RUN_DIR,' config=',  dirs_list$EXP_CONFIGS_PATH, '/', i,' >> ',  dirs_list$LOG_FULL_PATH))
+      shell(paste0(dirs_list$MODEL_RUN_DIR,' --headless',' config=',  dirs_list$EXP_CONFIGS_PATH, '/', i, ' >> ',  dirs_list$LOG_FULL_PATH))
       repets <- repets - 1
       k <- k + 1
       utils::setTxtProgressBar(pb, k)

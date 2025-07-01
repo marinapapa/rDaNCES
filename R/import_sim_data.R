@@ -10,7 +10,7 @@ import_base_data <- function(folder_path,
                                        'neighb',
                                        'group'
                                        ),
-                             config_name = 'composed_config.json')
+                             config_name = 'config.json')
 {
   out <- list()
 
